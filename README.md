@@ -1,1 +1,1 @@
-The aim of this project is to create an IPL Fantasy League web application that chooses a team of 11 players from the given list of players.
+The aim of this project is to create an IPL Fantasy League web application that chooses a team of 11 players from the given list of players , whose player type , nationality and credits are mentioned. The technical stack used for this project are HTML , CSS , JavaScript , Mongo DB , Express and Angular JS.
