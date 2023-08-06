@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IPL Fantasy League Team</title>
+	<link rel="stylesheet" type="text/css" href="mt.css">
+</head>
+<body style="margin-bottom: 20px;">
+	<header>
+		<h1>My IPL Fantasy League Team</h1>
+		<a href="login.html" onclick="con(this)">Sign Out</a></li>
+	</header>
+	<main>
+		<section>
+			<h2>Batsmen</h2>
+			<ul>
+				<li>Rohit Sharma</li>
+				<li>Shubman Gill</li>
+				<li>Virat Kohli</li>
+                <li>Suryakumar Yadav</li>
+			</ul>
+		</section>
+        <section>
+			<h2>Wicket-keepers</h2>
+			<ul>
+				<li>Rishabh Pant</li>
+			</ul>
+		</section>
+		<section>
+			<h2>All-Rounders</h2>
+			<ul>
+				<li>Hardik Pandya</li>
+				<li>Ravindra Jadeja</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Bowlers</h2>
+			<ul>
+				<li>Ravi Bishnoi</li>
+				<li>Mohammed Shami</li>
+				<li>Mohammed Siraj</li>
+                <li>Jasprit Bumrah</li>
+			</ul>
+		</section>
+	</main>
+</body>
+<script>
+	var con=function(x){
+		var val=confirm("Do you want to sign out?");
+		if(val!=true){
+			x.href="login.html";
+		}
+	}
+
+</script>
+</html>

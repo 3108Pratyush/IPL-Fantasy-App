@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <style>
+        
+input[type="number"] {
+  width: 150px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <h2>Select Your Cricket Team</h2>
+        <p style="color: red;" ng-if="message">{{ message }}</p>
+        <form ng-if="!teamSelected">
+          <div>
+            <label>Budget:</label>
+            {{budget}}
+          </div>
+          <br>
+          
+          <input type="textbox" size="30" ng-model="search" placeholder="Search player by name/role/nationality">
+            <ul>
+                <li ng-repeat="player in players | filter:search:filterByRole">{{player.name}}({{player.role}})({{player.nationality}})</li>
+            </ul>
+
+          <div ng-repeat="player in players">
+            <label>
+              <input type="checkbox" ng-model="player.selected" ng-change="selectPlayer(player)">
+              {{player.name}} - {{player.role}} - {{player.cost}}
+            </label>
+          </div>
+          <br>
+        </form>
+        
+        <br>
+        
+        <div ng-if="teamSelected">
+          <h3>Your Selected Team:</h3>
+          <ul>
+            <li ng-repeat="player in selectedPlayers">
+              {{player.name}} - {{player.role}} - {{player.cost}}
+            </li>
+          </ul>
+        </div>
+
+        <button ng-click="update()" ng-if="!teamSelected">Select</button>
+        <button ng-click="reset()" ng-if="teamSelected">Reset</button>
+        
+
+      </div>
+      <script>
+
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", function($scope) {
+          
+          $scope.budget = 40000;
+          
+          $scope.players = [
+            {name: "Virat Kohli", role: "Batsman", cost: 1000, nationality: "Indian",selected: false},
+            {name: "Rohit Sharma", role: "Batsman", cost: 2000, nationality: "Indian",selected: false},
+            {name: "Suryakumar Yadav", role: "Batsman", cost: 1500, nationality: "Indian",selected: false},
+            {name: "Devon Conway", role: "Batsman", cost: 2500, nationality: "Overseas",selected: false},
+            {name: "Jasprit Bumrah", role: "Bowler", cost: 1200, nationality: "Indian",selected: false},
+            {name: "Mohammed Shami", role: "Bowler", cost: 1800, nationality: "Indian",selected: false},
+            {name: "Bhuvneshwar Kumar", role: "Bowler", cost: 2000, nationality: "Indian",selected: false},
+            {name: "Arshdeep Singh", role: "Bowler", cost: 1500, nationality: "Indian",selected: false},
+            {name: "Ishan Kishan", role: "Wicket Keeper", cost: 2500, nationality: "Indian",selected: false},
+            {name: "Hardik Pandya", role: "All-Rounder", cost: 3000, nationality: "Indian",selected: false},
+            {name: "Krunal Pandya", role: "All-Rounder", cost: 3500, nationality: "Indian",selected: false},
+            {name: "Faf Du Plessis", role: "Batsman", cost: 2200, nationality: "Overseas",selected: false},
+            {name: "Ruturaj Gaikwad", role: "Batsman", cost: 1800, nationality: "Indian",selected: false},
+            {name: "Piyush Chawla", role: "Bowler", cost: 2200, nationality: "Indian",selected: false},
+            {name: "Tushar Deshpande", role: "Bowler", cost: 1800, nationality: "Indian",selected: false},
+            {name: "Mohit Sharma", role: "Bowler", cost: 1500, nationality: "Indian",selected: false},
+            {name: "Trent Boult", role: "Bowler",cost : 1000, nationality: "Overseas",selected: false},
+            {name: "Kagiso Rabada", role: "Bowler", cost: 1200, nationality: "Overseas",selected: false},
+{name: "Yuzvendra Chahal", role: "Bowler", cost: 2000, nationality: "Indian",selected: false},
+{name: "Ravi Bishnoi", role: "Bowler", cost: 2500, nationality: "Indian",selected: false},
+{name: "Kuldeep Yadav", role: "Bowler", cost: 1800, nationality: "Indian",selected: false},
+{name: "Varun Chakravarthy", role: "Bowler", cost: 1500, nationality: "Indian",selected: false},
+{name: "Umesh Yadav", role: "Bowler", cost: 2000, nationality: "Indian",selected: false},
+{name: "Ravindra Jadeja", role: "All-Rounder", cost: 3000, nationality: "Indian",selected: false},
+{name: "Axar Patel", role: "All-Rounder", cost: 3500, nationality: "Indian",selected: false},
+{name: "Cameron Green", role: "All-Rounder", cost: 2200, nationality: "Overseas",selected: false},
+{name: "Sam Curran", role: "All-Rounder", cost: 2500, nationality: "Overseas",selected: false},
+{name: "Moeen Ali", role: "All-Rounder", cost: 2000, nationality: "Overseas",selected: false},
+{name: "Andre Russell", role: "All-Rounder", cost: 1800, nationality: "Overseas",selected: false},
+{name: "Marcus Stoinis", role: "All-Rounder", cost: 1500, nationality: "Overseas",selected: false},
+{name: "Tilak Verma", role: "Batsman", cost: 2200, nationality: "Indian",selected: false},
+{name: "Rinku Singh", role: "Batsman", cost: 1800, nationality: "Indian",selected: false},
+{name: "Nitish Rana", role: "Batsman", cost: 1500, nationality: "Indian",selected: false},
+{name: "Shikhar Dhawan", role: "Batsman", cost: 2500, nationality: "Indian",selected: false},
+{name: "Jason Roy", role: "Batsman", cost: 2000, nationality: "Overseas",selected: false},
+{name: "David Warner", role: "Batsman", cost: 1200, nationality: "Overseas", selected: false},
+{name: "Shubman Gill", role: "Batsman", cost: 1800, nationality: "Indian",selected: false},
+{name: "David Miller", role: "Batsman", cost: 2000, nationality: "Overseas",selected: false},
+{name: "Mathisha Pathirana", role: "Bowler", cost: 2500, nationality: "Overseas", selected: false},
+{name: "Maheesh Theekshana", role: "Bowler", cost: 2200, nationality: "Overseas", selected: false},
+{name: "Ishant Sharma", role: "Bowler", cost: 1500, nationality: "Indian",selected: false},
+{name: "Jason Behrendorff", role: "Bowler", cost: 1200, nationality: "Overseas", selected: false},
+{name: "Quinton De Cock", role: "Wicket Keeper", cost: 2500, nationality: "Overseas", selected: false},
+{name: "Rashid Khan", role: "All-Rounder", cost: 3000, nationality: "Overseas", selected: false},
+{name: "Washington Sundar", role: "All-Rounder", cost: 3500, nationality: "Indian",selected: false},
+{name: "Vijay Shankar", role: "All-Rounder", cost: 2200, nationality: "Indian",selected: false},
+{name: "Rahul Tewatia", role: "All-Rounder", cost: 2500, nationality: "Indian",selected: false},
+      {name: "Sunil Narine", role: "All-Rounder", cost: 2000, nationality: "Overseas", selected: false},
+      {name: "Glenn Maxwell", role: "All-Rounder", cost: 1800, nationality: "Overseas", selected: false},
+      {name: "Lalit Yadav", role: "All-Rounder", cost: 1500, nationality: "Indian",selected: false},
+      {name: "Yashasvi Jaiswal", role: "Batsman", cost: 2200, nationality: "Indian",selected: false},
+{name: "Mahendra Singh Dhoni", role: "Wicket Keeper", cost: 2500, nationality: "Indian",selected: false},
+      {name: "Wriddhiman Saha", role: "Wicket Keeper", cost: 2000, nationality: "Indian",selected: false},
+      {name: "Heinrich Klaasen", role: "Wicket Keeper", cost: 1800, nationality: "Overseas", selected: false},
+      {name: "Nicholas Pooran", role: "Wicket Keeper", cost: 1500, nationality: "Overseas", selected: false}
+    ];
+
+    $scope.budget = 40000;
+    $scope.batsmenSelected = 0
+    $scope.bowlersSelected =0 
+    $scope.allroundersSelected = 0
+    $scope.wicketKeeperSelected = 0;
+    $scope.selectedPlayers = []
+
+    $scope.update = function() {
+        console.log($scope.selectedPlayers.length);
+        $scope.message = undefined;
+        if ($scope.selectedPlayers.length < 11 || $scope.selectedPlayers.length > 11) {
+            $scope.message = 'Please select exactly 11 players'
+            return;
+        }
+        $scope.teamSelected = true;
+    }
+
+    $scope.reset = function() {
+        $scope.budget = 40000;
+        $scope.batsmenSelected = 0
+        $scope.bowlersSelected =0 
+        $scope.allroundersSelected = 0
+        $scope.wicketKeeperSelected = 0;
+        $scope.teamSelected = false;
+        $scope.selectedPlayers = [];
+        $scope.players.forEach(player => player.selected = false);
+    }
+    
+    $scope.message = undefined;
+    console.log($scope.players);
+    $scope.selectPlayer = function(player) {
+        $scope.message = undefined;
+        console.log(player);
+      if (player.selected) {
+        if (player.role === "Batsman" && $scope.batsmenSelected < 4) {
+          $scope.batsmenSelected++;
+        } else if (player.role === "Bowler" && $scope.bowlersSelected < 4) {
+          $scope.bowlersSelected++;
+        } else if (player.role === "All-Rounder" && $scope.allroundersSelected < 2) {
+          $scope.allroundersSelected++;
+        } else if (player.role === "Wicket Keeper" && $scope.wicketKeeperSelected < 1) {
+          $scope.wicketKeeperSelected++;
+        } else {
+            player.selected = false;
+          $scope.message = 'Please select 4 batsmen, 4 bowlers, 2 allrounders and 1 wicket keeper'
+          return;
+        }
+        $scope.budget-=player.cost
+        $scope.selectedPlayers.push(player);
+        console.log($scope.selectedPlayers)
+      } else {
+        console.log('selected');
+        if (player.role === "Batsman") {
+          $scope.batsmenSelected--;
+        } else if (player.role === "Bowler") {
+          $scope.bowlersSelected--;
+        } else if (player.role === "All-Rounder") {
+          $scope.allroundersSelected--;
+        } else if (player.role === "Wicket Keeper") {
+          $scope.wicketKeeperSelected--;
+        }
+
+        $scope.budget += player.cost;
+        $scope.selectedPlayers = $scope.selectedPlayers.filter(p => p.name !== player.name)
+        player.selected = false;
+      }
+    };
+  });   
+  $scope.filterByRole = function(player) {
+    if (!$scope.search) return true;
+    return player.role.toLowerCase().indexOf($scope.search.toLowerCase()) !== -1;
+  };
+  </script> 
+</body>
+</html>

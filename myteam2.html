@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IPL Fantasy League App</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>IPL Fantasy League App</h1>
+    <form>
+      <h2>Select 11 Players:</h2>
+      <div class="position">
+        <label for="wk">Wicket Keeper:</label>
+        <select id="wk" name="wicketKeeper">
+          <option value="">Select a wicket keeper</option>
+          <option value="msd">MS Dhoni</option>
+          <option value="klr">KL Rahul</option>
+          <option value="rs">Rishabh Pant</option>
+        </select>
+        <input type="radio" id="wk-role-1" name="wicketKeeperRole" value="captain">
+        <label for="wk-role-1">Captain</label>
+        <input type="radio" id="wk-role-2" name="wicketKeeperRole" value="vice-captain">
+        <label for="wk-role-2">Vice Captain</label>
+      </div>
+      <div class="position">
+        <label for="bat1">Batsman 1:</label>
+        <select id="bat1" name="batsman1">
+          <option value="">Select a batsman</option>
+          <option value="vk">Virat Kohli</option>
+          <option value="sd">Suryakumar Yadav</option>
+          <option value="rg">Rohit Sharma</option>
+        </select>
+        <input type="radio" id="bat1-role-1" name="batsman1Role" value="opener">
+        <label for="bat1-role-1">Opener</label>
+        <input type="radio" id="bat1-role-2" name="batsman1Role" value="middle-order">
+        <label for="bat1-role-2">Middle Order</label>
+      </div>
+      <div class="position">
+        <label for="bat2">Batsman 2:</label>
+        <select id="bat2" name="batsman2">
+          <option value="">Select a batsman</option>
+          <option value="sm">Steve Smith</option>
+          <option value="ks">Kane Williamson</option>
+          <option value="is">Ishan Kishan</option>
+        </select>
+        <input type="radio" id="bat2-role-1" name="batsman2Role" value="opener">
+        <label for="bat2-role-1">Opener</label>
+        <input type="radio" id="bat2-role-2" name="batsman2Role" value="middle-order">
+        <label for="bat2-role-2">Middle Order</label>
+      </div>
+      <div class="position">
+        <label for="bat3">Batsman 3:</label>
+        <select id="bat3" name="batsman3">
+          <option value="">Select a batsman</option>
+          <option value="ab">AB de Villiers</option>
+          <option value="ss">Suresh Raina</option>
+          <option value="fa">Faf du Plessis</option>
+        </select>
+        <label for="bat3-role-1">Opener</label>
+        <input type="radio" id="bat3-role-2" name="batsman3Role" value="middle-order">
+        <label for="bat3-role-2">Middle Order</label>
+      </div>
+      <div class="position">
+        <label for="ar1">All-Rounder 1:</label>
+        <select id="ar1" name="allRounder1">
+          <option value="">Select an all-rounder</option>
+          <option value="sm">Shakib Al Hasan</option>
+          <option value="mm">Marcus Stoinis</option>
+          <option value="rs">Ravindra Jadeja</option>
+        </select>
+        <input type="radio" id="ar1-role-1" name="allRounder1Role" value="batting-allrounder">
+        <label for="ar1-role-1">Batting All-Rounder</label>
+        <input type="radio" id="ar1-role-2" name="allRounder1Role" value="bowling-allrounder">
+        <label for="ar1-role-2">Bowling All-Rounder</label>
+      </div>
+      <div class="position">
+        <label for="ar2">All-Rounder 2:</label>
+        <select id="ar2" name="allRounder2">
+          <option value="">Select an all-rounder</option>
+          <option value="kh">Kieron Pollard</option>
+          <option value="hm">Hardik Pandya</option>
+          <option value="dp">Deepak Hooda</option>
+        </select>
+        <input type="radio" id="ar2-role-1" name="allRounder2Role" value="batting-allrounder">
+        <label for="ar2-role-1">Batting All-Rounder</label>
+        <input type="radio" id="ar2-role-2" name="allRounder2Role" value="bowling-allrounder">
+        <label for="ar2-role-2">Bowling All-Rounder</label>
+      </div>
+      <div class="position">
+        <label for="bowl1">Bowler 1:</label>
+        <select id="bowl1" name="bowler1">
+          <option value="">Select a bowler</option>
+          <option value="jb">Jasprit Bumrah</option>
+          <option value="ys">Yuzvendra Chahal</option>
+          <option value="bh">Bhuvneshwar Kumar</option>
+        </select>
+        <input type="radio" id="bowl1-role-1" name="bowler1Role" value="fast-bowler">
+        <label for="bowl1-role-1">Fast Bowler</label>
+        <input type="radio" id="bowl1-role-2" name="bowler1Role" value="spinner">
+        <label for="bowl1-role-2">Spinner</label>
+      </div>
+      <div class="position">
+        <label for="bowl2">Bowler 2:</label>
+        <select id="bowl2" name="bowler2">
+          <option value="">Select a bowler</option>
+          <option value="um">Umesh Yadav</option>
+          <option value="ma">Mohammed Shami</option>
+          <option value="tk">Trent Boult</option>
+        </select>
+        <input type "radio" id="bowl2-role-1" name="bowler2Role" value="fast-bowler">
+        <label for="bowl2-role-1">Fast Bowler</label>
+        <input type="radio" id="bowl2-role-2" name="bowler2Role" value="spinner">
+        <label for="bowl2-role-2">Spinner</label>
+      </div>
+      <div class="position">
+        <label for="bowl3">Bowler 3:</label>
+        <select id="bowl3" name="bowler3">
+          <option value="">Select a bowler</option>
+          <option value="sr">Sandeep Sharma</option>
+          <option value="ra">Rashid Khan</option>
+          <option value="ja">Jofra Archer</option>
+        </select>
+        <input type="radio" id="bowl3-role-1" name="bowler3Role" value="fast-bowler">
+        <label for="bowl3-role-1">Fast Bowler</label>
+        <input type="radio" id="bowl3-role-2" name="bowler3Role" value="spinner">
+        <label for="bowl3-role-2">Spinner</label>
+      </div>
+      <div class="submit-container">
+        <input type="submit" value="Submit">
+      </div>
+    </form>
+  </div>
+</body>
+</html>
+<style>
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.position {
+  width: 33%;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+select {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+.submit-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+} 
+</style>

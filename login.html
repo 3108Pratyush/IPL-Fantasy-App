@@ -1,0 +1,29 @@
+<link rel="stylesheet" type="text/css" href="style.css">
+<div class="container">
+    <div class="svg">
+        <svg width="500" height="50">
+            <text x="97" y="35" font-size="30" font-weight="bold" fill="#004BA0">IPL FANTASY LEAGUE</text>
+        </svg>
+    </div>
+
+    <div class="aud">
+        <audio controls>
+            <source src="champion.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="login-box">
+        <img src="ipl.png" class="logo">
+        <h1>Login to IPL Fantasy</h1>
+        <form>
+            <label for="username">Username</label>
+            <input type="text" id="1" name="username" ng-model="username" placeholder="Enter Username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="2" name="password" ng-model="password" placeholder="Enter Password" required>
+
+            <input type="submit" name="submit" value="Login" onclick=validate()>
+        </form>
+        <p>Don't have an account? <a href="signup.html" style="color:#f0684a;text-decoration: none;">Sign Up</a></p>
+    </div>
+</div>
